@@ -1,0 +1,28 @@
+<h1>Exercice 9</h1>
+<h2>*ngFor - Classes</h2>
+<b>Employees:</b>
+<table class="table-bordered table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Salary</th>
+  </tr>
+  <tr *ngFor="let e of employees">
+    <td>{{ e.name }}</td>
+    <td>{{ e.position }}</td>
+    <td>{{ e.salary }}</td>
+  </tr>
+</table>
+
+<form (ngSubmit)="onSubmit()">
+  <select name="order" id="order" [(ngModel)]="order">
+    <option value="name">name</option>
+    <option value="position">position</option>
+    <option value="salary">salary</option>
+  </select>
+  <select name="mode" id="mode" [(ngModel)]="mode">
+    <option value="asc">ascending</option>
+    <option value="desc">descending</option>
+  </select>
+  <button type="submit" class="ml-2">Order</button>
+</form>

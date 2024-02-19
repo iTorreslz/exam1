@@ -1,0 +1,12 @@
+.footer-content {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+}
+
+.footer-content p {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+}
