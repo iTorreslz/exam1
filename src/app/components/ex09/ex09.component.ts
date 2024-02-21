@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
-import { Employee } from "../../employee";
-import { EMPLOYEE_LIST } from "../../employee";
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+import { Employee, EMPLOYEE_LIST } from "../../employee";
 import { NgForOf } from "@angular/common";
-import { NgForm } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Ex11Component } from '../ex11/ex11.component';
 
 @Component({
   selector: 'app-ex09',
@@ -11,17 +10,28 @@ import { FormsModule } from '@angular/forms';
   imports: [
     NgForOf,
     FormsModule,
+    Ex11Component
   ],
   templateUrl: './ex09.component.html'
 })
-export class Ex09Component {
+export class Ex09Component implements AfterViewInit {
+
   order: string = '';
   mode: string = '';
   employees: Employee[] = [];
 
+  @ViewChild(Ex11Component) form: any;
+
   constructor() { }
 
+  newEmployeeList: Employee[] | undefined;
+
+  ngAfterViewInit() {
+    this.newEmployeeList = this.form.newEmployeeList;
+  }
+
   onSubmit(): void {
+
     const orderValue = this.order;
     const modeValue = this.mode;
 
@@ -45,6 +55,12 @@ export class Ex09Component {
   }
 
   ngOnInit(): void {
-    this.employees = EMPLOYEE_LIST;
+    if (this.newEmployeeList) {
+      this.employees = this.form.newEmployeeList;
+    } else {
+      alert(this.newEmployeeList)
+      this.employees = EMPLOYEE_LIST;
+    }
   }
+  
 }

@@ -10,6 +10,7 @@ import { Ex07Component } from './components/ex07/ex07.component';
 import { Ex08Component } from './components/ex08/ex08.component';
 import { Ex10Component } from './components/ex10/ex10.component';
 import { Ex09Component } from './components/ex09/ex09.component';
+import { Ex11Component } from './components/ex11/ex11.component';
 
 export const routes: Routes = [
     {
@@ -66,5 +67,10 @@ export const routes: Routes = [
         path: 'ex10',
         component: Ex10Component,
         title: 'Exercise 10'
+    },
+    {
+        path: 'ex11',
+        component: Ex11Component,
+        title: 'Exercise 11'
     }
 ];
